@@ -47,3 +47,30 @@ body {
   height: 50vh;
   gap: 1rem;
 }
+
+.icons:hover {
+  color: #ff9800 !important;
+  cursor: pointer;
+}
+
+.active-song-name {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.active-artist-name {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
