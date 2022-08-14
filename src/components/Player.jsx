@@ -3,7 +3,7 @@ import { useState } from "react";
 import { GoPlay } from "react-icons/go";
 import { BsPauseCircleFill } from "react-icons/bs";
 import { ImPrevious, ImNext } from "react-icons/im";
-const Player = () => {
+const Player = ({ currentSong }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -11,8 +11,15 @@ const Player = () => {
   return (
     <div>
       <div className="player-card">
-        <h3 className="active-song-name">Song Name</h3>
-        <h5 className="active-artist-name">Artist</h5>
+        {currentSong ? (
+          <div>
+            <h3 className="active-song-name">{currentSong.name}</h3>
+            <h5 className="active-artist-name">{currentSong.creator}</h5>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="control-icon">
           <ImPrevious color="white" size={40} className="icons" />
           {isPlaying ? (
