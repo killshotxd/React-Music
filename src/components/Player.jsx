@@ -1,15 +1,27 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { useState, useRef } from "react";
 import { GoPlay } from "react-icons/go";
 import { BsPauseCircleFill } from "react-icons/bs";
 import { ImPrevious, ImNext } from "react-icons/im";
-const Player = ({ currentSong }) => {
+const Player = ({ currentSong, currentIndex }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
+
   return (
     <div>
+      <audio ref={audioRef} src={currentSong.music}></audio>
+
       <div className="player-card">
         {currentSong ? (
           <div>
