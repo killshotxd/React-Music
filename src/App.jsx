@@ -5,22 +5,31 @@ import Player from "./components/Player";
 const App = () => {
   const [songs, setSongs] = useState(audios);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [currentSong, setCurrentSOng] = useState({});
+  const [currentSong, setCurrentSOng] = useState(songs[0]);
   const getSongData = (song, index) => {
     setCurrentIndex(index);
     setCurrentSOng(song);
   };
+
+  const nextSong = () => {
+    setCurrentIndex(currentIndex + 1);
+    setCurrentSOng(audios[currentIndex + 1]);
+  };
+
+  const prevSong = () => {
+    setCurrentIndex(currentIndex - 1);
+    setCurrentSOng(audios[currentIndex - 1]);
+  };
+
   return (
     <>
       <div className="player-main">
-        <Player currentSong={currentSong} currentIndex={currentIndex} />
-      </div>
-      <div className="app-main">
-        {songs.map((song, index) => {
-          return (
-            <AudioFiles song={song} getSongData={getSongData} index={index} />
-          );
-        })}
+        <Player
+          currentSong={currentSong}
+          currentIndex={currentIndex}
+          nextSong={nextSong}
+          prevSong={prevSong}
+        />
       </div>
     </>
   );

@@ -28,7 +28,11 @@ body {
 /* 15:36m */
 
 .player-main {
-  padding: 10px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
 }
 
 .player-card {
@@ -44,7 +48,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 23vh;
   gap: 1rem;
 }
 
@@ -59,7 +63,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 80px;
+  top: 195px;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -70,9 +74,21 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 120px;
+  top: 225px;
   left: 50%;
   transform: translate(-50%, 0);
 }
 
 /* 36:24m */
+
+.music-image {
+  width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
