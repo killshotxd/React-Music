@@ -4,12 +4,20 @@ import bgImage from "../assets/unsplash.jpg";
 import { GoPlay } from "react-icons/go";
 import { BsPauseCircleFill } from "react-icons/bs";
 import { ImPrevious, ImNext } from "react-icons/im";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Player = ({ currentSong, currentIndex, nextSong, prevSong }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
+
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   useEffect(() => {
     if (isPlaying) {
@@ -21,9 +29,9 @@ const Player = ({ currentSong, currentIndex, nextSong, prevSong }) => {
 
   return (
     <div>
-      <audio ref={audioRef} src={currentSong.music}></audio>
+      <audio ref={audioRef} src={currentSong.music} loop></audio>
 
-      <div className="player-card">
+      <div data-aos="zoom-in-up" className="player-card">
         <div className="image-container">
           <img className="music-image" src={bgImage} alt="image" />
         </div>
